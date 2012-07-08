@@ -1,5 +1,5 @@
 def full_title(page_title)
-  base_title = "EasyFeedback"
+  base_title = "DerpFeedback"
   
   if page_title.empty?
     base_title
