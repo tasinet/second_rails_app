@@ -9,8 +9,8 @@ FactoryGirl.define do
     	admin true
     end
   end
-  factory :micropost do
-    content "Lorem ipsum"
+  factory :domain do
+    base_domain "asdjasldkjsa.com"
     user
   end
 end

@@ -1,0 +1,5 @@
+<% if current_user.unconfirmed_domains.any? %>
+<ol class="domains">
+	<%= render partial: 'shared/domain_item', collection: current_user.unconfirmed_domains %>
+</ol>
+<% end %>
