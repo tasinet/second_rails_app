@@ -1,0 +1,9 @@
+<%= form_for(@domain) do |f| %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field:base_domain, placeholder: "Enter domain (no subdomains, no slashes)" %>
+  </div>
+  <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+
+<% end %>

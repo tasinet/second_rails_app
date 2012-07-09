@@ -2,7 +2,9 @@
   <% if domain_item.confirmed? %>
   <span class="pull-right"> <a href="" class="btn btn-primary">View Feedback</a> </span>
   <% else %>
-  <span class="pull-right"> <a href="" class="btn btn-danger">Delete</a> 
-   <a href="" class="btn btn-primary">Confirm</a> </span>
+  <span class="pull-right"> 
+    <%= link_to "Confirm Ownership", domain_item, method: :put, class: "btn", title: domain_item.base_domain %>
+    <%= link_to "x", domain_item, method: :delete, class: 'btn btn-danger',
+                                     title: domain_item.base_domain %>
   <% end %>
 </li>

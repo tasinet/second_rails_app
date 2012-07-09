@@ -1,24 +1,34 @@
 <% if signed_in? %>
   <div class="row">
+    <div class="span8">
+      <% if @confirmed_domains.any? %>
+        <h3>Active Domains</h3>
+        <%= render 'shared/confirmed_domains' %>
+	<hr/>
+      <% end %>
+      <% if @unconfirmed_domains.any? %>
+        <h3>Unconfirmed Domains</h3>
+        <%= render 'shared/unconfirmed_domains' %>
+      <% end %>
+      <% if !(@confirmed_domains.any? || @unconfirmed_domains.any?) %>
+	<p class="center">You do not have any domains yet. Add one from the right.</p>
+      <% end %>
+    </div>
     <aside class="span4">
       <section>
         <%= render 'shared/user_info' %>
       </section>
+      <section>
+        <%= render 'shared/domain_form' %>
+      </section>
     </aside>
-    <div class="span8">
-      <h3>Active Domains</h3>
-      <%= render 'shared/confirmed_domains' %>
-	<hr/>
-      <h3>Domains (pending confirmation)</h3>
-      <%= render 'shared/unconfirmed_domains' %>
-    </div>
   </div>  
 <% else %>
   <div class="center hero-unit">
     <h1>Welcome to DerpBack</h1>
 
     <h2>
-	A feedback-collecting plugin that is <em>so easy you'll Derp</em>.
+	A free feedback-collecting plugin and service that'll derp you out.
     </h2>
 
     <%= link_to "Sign up now!", signup_path, 
