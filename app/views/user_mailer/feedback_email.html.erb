@@ -4,11 +4,24 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <p>
-	<%= @f.feedback_type %><BR/>
-	<%= @f.email %><BR/>
-	<%= @f.fbid %><BR/>
-	<%= @f.message %><BR/>
-    </p>
+    <h3>Feedback notification for <%= @f.domain.base_domain %></h3>
+    <TABLE>
+	<TR>
+		<TD>Feedback Type</TD>
+		<TD><%= @f.feedback_type %></TD>
+	</TR>
+	<TR>
+		<TD>Email</TD>
+		<TD><%= @f.email %></TD>
+	</TR>
+	<TR>
+		<TD>Facebook ID</TD>
+		<TD><%= @f.fbid %><% if !@f.fbid.nil? %> <img src="https://graph.facebook.com/<%=@f.fbid%>/picture"/><% end %></TD>
+	</TR>
+	<TR>
+		<TD>Message</TD>
+		<TD><%= @f.message %></TD>
+	</TR>
+    </TABLE>
   </body>
 </html>

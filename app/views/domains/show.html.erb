@@ -5,6 +5,7 @@
     <th>Message</th>
     <th>Email?</th>
     <th>Facebook ID?</th>
+    <th>IP address</th>
   </tr>
 	<% @domain.feedbacks.each do |f| %>
   <tbody>
@@ -13,6 +14,7 @@
     <TD><%= f.message %></TD>
     <TD><%= f.email %></TD>
     <TD><%= f.fbid %></TD>
+    <TD><%= f.client_ip %></TD>
   </TR>
 	<% end %>
 </table>

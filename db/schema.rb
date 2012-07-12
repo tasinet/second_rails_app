@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712163456) do
+ActiveRecord::Schema.define(:version => 20120712204627) do
 
   create_table "domains", :force => true do |t|
     t.string   "base_domain"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20120712163456) do
     t.string   "fbid"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "client_ip"
   end
 
   create_table "microposts", :force => true do |t|

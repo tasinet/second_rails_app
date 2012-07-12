@@ -7,6 +7,8 @@ class UserMailer < ActionMailer::Base
   end
   def feedback_email(feedback)
     @f = feedback
-    mail(to: @f.domain.user.email, subject: @f.domain.base_domain+" feedback received, type: "+@f.feedback_type)
+    params = { :to => @f.domain.user.email, :subject => @f.domain.base_domain+" feedback received, type:"+@f.feedback_type }
+    params[:reply_to]=@f.email if (!@f.email.nil?)
+    mail params
   end
 end

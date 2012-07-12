@@ -6,7 +6,12 @@ class DomainsController < ApplicationController
 
   def show
     @domain = current_user.domains.find_by_id(params[:id])
-    @feedback = @domain.feedbacks
+    if @domain.nil?
+	flash[:warning] = "Domain not found or not owned by you"
+	redirect_to root_path
+    else
+        @feedback = @domain.feedbacks
+    end
   end
 
   def create 
@@ -51,19 +56,16 @@ class DomainsController < ApplicationController
     if (@domain.nil?)
 	@response = { :error => "Domain not found. Do you have the correct domain id?", :ok => 0 }
     elsif (!@domain.confirmed?)
-	@response = { :error => "Domain is not confirmed. Please have an administrator confirm it." }
+	@response = { :error => "Domain is not confirmed. Please have an administrator confirm it.", :ok => 0 }
     else
+      params[:feedback][:client_ip]=request.remote_ip
       @feedback = @domain.feedbacks.build(params[:feedback])
       if @feedback.save
 	@response = { :ok => 1 };
-        UserMailer.feedback_email @feedback
+        UserMailer.feedback_email(@feedback).deliver
       end
     end	
-  render :json => @response.to_json, :callback => params[:callback]
-  # respond_to do |format|
-  #  format.html
-  #  format.json
-  #end
+    render :json => @response.to_json, :callback => params[:callback]
   end
 
   def destroy
