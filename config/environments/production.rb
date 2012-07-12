@@ -1,4 +1,4 @@
-SampleApp::Application.configure do
+aampleApp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -55,9 +55,9 @@ SampleApp::Application.configure do
   config.action_mailer.smtp_settings = {
           :address              => "smtp.gmail.com",
           :port                 => 587,
-          :domain               => 'yourad.io',
-          :user_name            => 'dj@yourad.io',
-          :password             => 'Bowljob8',
+          :domain               => 'rentapieceofparadise.gr',
+          :user_name            => 'web-robot@rentapieceofparadise.gr',
+          :password             => 'asdukuijkqwa8888',
           :authentication       => 'plain',
           :enable_starttls_auto => true  
   }
