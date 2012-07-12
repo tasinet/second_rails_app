@@ -56,6 +56,7 @@ class DomainsController < ApplicationController
       @feedback = @domain.feedbacks.build(params[:feedback])
       if @feedback.save
 	@response = { :ok => 1 };
+        UserMailer.feedback_email @feedback
       end
     end	
   render :json => @response.to_json, :callback => params[:callback]

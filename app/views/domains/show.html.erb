@@ -1,6 +1,13 @@
 <h1><%= @domain.base_domain %> feedback</h1>
-<table>
+<table class="table">
+  <tr>
+    <th>Type</th>
+    <th>Message</th>
+    <th>Email?</th>
+    <th>Facebook ID?</th>
+  </tr>
 	<% @domain.feedbacks.each do |f| %>
+  <tbody>
   <TR>
     <TD><%= f.feedback_type %></TD>
     <TD><%= f.message %></TD>
