@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+SITE_SALT=''
+
 def full_title(page_title)
 	base_title = "DerpFeedback"
 	if page_title.empty?

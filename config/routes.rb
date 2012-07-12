@@ -1,7 +1,9 @@
 SampleApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :domains, only: [:create, :verify, :destroy]
+  resources :domains, only: [:create, :destroy, :update, :show]
+
+  match '/add_derp',	to: 'domains#add_feedback'
 
   match '/signup',	to: 'users#new'
   match '/signin', 	to: 'sessions#new'

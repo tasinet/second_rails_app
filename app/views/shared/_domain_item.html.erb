@@ -1,6 +1,8 @@
 <li> <Strong><%= domain_item.base_domain %> </strong> 
   <% if domain_item.confirmed? %>
-  <span class="pull-right"> <a href="" class="btn btn-primary">View Feedback</a> </span>
+  <span class="pull-right"> 
+	<%= link_to "View Feedback", domain_item, class: "btn", title: 'View Feedback'%>
+  </span>
   <% else %>
   <span class="pull-right"> 
     <%= link_to "Confirm Ownership", domain_item, method: :put, class: "btn", title: domain_item.base_domain %>

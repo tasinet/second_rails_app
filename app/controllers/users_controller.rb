@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
 	sign_in @user
-	flash[:success] = "Welcome to DerpBack - the derp-easy way to get feedback. May your reviews do justice to your product!"
+	UserMailer.welcome_email(@user).deliver
+	flash[:notice] = "Welcome to DerpBack. May your feedback do justice to your product!"
 	redirect_to root_path
     else
 	render 'new'

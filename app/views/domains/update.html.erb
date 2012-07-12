@@ -1,0 +1,17 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span8 offset3">
+    <section>
+      <h1>
+        <%= @domain.base_domain %>
+      </h1>
+      <p>To verify that you own this domain, please put the following file in your root path.<BR/><em>You may delete it after we have verified ownership.</em></p>
+      <p><strong><%= @domain.confirmation_url 1 %></strong></p>
+      <p><blockquote><%= @domain.verification_text %></blockquote></p>
+      <%= link_to "Download", domain_path(@domain, download:1), method: :put, class: 'btn' %>
+      <p>When you have uploaded the file, press confirm below.</p>
+
+      <%= link_to "Confirm", domain_path(@domain, confirm:1), method: :put, class: 'btn btn-primary' %>
+    </section>
+  </aside>
+</div>

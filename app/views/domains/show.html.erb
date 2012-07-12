@@ -1,0 +1,11 @@
+<h1><%= @domain.base_domain %> feedback</h1>
+<table>
+	<% @domain.feedbacks.each do |f| %>
+  <TR>
+    <TD><%= f.feedback_type %></TD>
+    <TD><%= f.message %></TD>
+    <TD><%= f.email %></TD>
+    <TD><%= f.fbid %></TD>
+  </TR>
+	<% end %>
+</table>

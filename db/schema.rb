@@ -11,14 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708224753) do
+ActiveRecord::Schema.define(:version => 20120712163456) do
 
   create_table "domains", :force => true do |t|
     t.string   "base_domain"
     t.integer  "user_id"
-    t.boolean  "confirmed",   :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "confirmed",         :default => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.string   "verification_text"
+  end
+
+  add_index "domains", ["base_domain"], :name => "index_domains_on_base_domain", :unique => true
+
+  create_table "feedbacks", :force => true do |t|
+    t.integer  "domain_id"
+    t.string   "feedback_type"
+    t.string   "email"
+    t.string   "message"
+    t.string   "fbid"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "microposts", :force => true do |t|
