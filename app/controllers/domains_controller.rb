@@ -49,14 +49,19 @@ class DomainsController < ApplicationController
   def add_feedback
     @domain = Domain.find_by_id params[:feedback][:domain_id] if !params[:feedback][:domain_id].nil?
     if (@domain.nil?)
-	flash[:error] = "Domain not found!"
-	redirect_to root_path
-    end
-    @feedback = @domain.feedbacks.build(params[:feedback])
-    if @feedback.save
-	    flash[:success] = "Thanks!"
-	    redirect_to root_path
-    end
+	@response = { :error => "Domain not found. Do you have the correct domain id?", :ok => 0 }
+    elsif (!@domain.confirmed?)
+	@response = { :error => "Domain is not confirmed. Please have an administrator confirm it." }
+    else
+      @feedback = @domain.feedbacks.build(params[:feedback])
+      if @feedback.save
+	@response = { :ok => 1 };
+      end
+    end	
+  respond_to do |format|
+    format.html
+    format.json
+  end
   end
 
   def destroy

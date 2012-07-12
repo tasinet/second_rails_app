@@ -1,0 +1,5 @@
+<h1><%= @response[:ok] ? "Success!" : "Error" %></h1>
+
+<% if !@response[:error].nil? %>
+<p> <%= @response[:error] %> </p>
+<% end  %>
