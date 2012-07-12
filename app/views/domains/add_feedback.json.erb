@@ -1,4 +1,4 @@
 {
-	"ok": <%= @response[:ok] %>
-	"error": "<%= @response[:error] if !@response[:error].nil? %>"
+	"ok": <%= @response[:ok] %><% if !@response[:error].nil? %>,
+	"error": "<%= @response[:error] if !@response[:error].nil? %>"<% end %>
 }

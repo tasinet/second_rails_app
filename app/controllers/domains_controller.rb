@@ -58,10 +58,11 @@ class DomainsController < ApplicationController
 	@response = { :ok => 1 };
       end
     end	
-  respond_to do |format|
-    format.html
-    format.json
-  end
+  render :json => @response.to_json, :callback => params[:callback]
+  # respond_to do |format|
+  #  format.html
+  #  format.json
+  #end
   end
 
   def destroy
