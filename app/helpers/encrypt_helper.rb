@@ -9,7 +9,8 @@ module EncryptHelper
 	len = 64 if len.nil?
 	s=""
 	for i in 0..len
-		x = rand(65..91)
+		x = rand 26
+		x+=65
 		x = x.chr
 		s+=x
 	end
