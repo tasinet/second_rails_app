@@ -1,0 +1,14 @@
+<h1><%= @domain.base_domain %> instructions</h1>
+<p>In order to get your Derpback plugin to render on a page, you need to do two things:</p>
+<h2>1) Include jQuery</h2>
+<p>IF you haven't already, you need to include jQuery in your page. The quickest way to do accomplish this is by adding a line like this: <pre class="prettyprint linenums">SCRIPT SRC='' /SCRIPT</pre> </p> 
+<h2>2) Include Javascript file</h2>
+<p> Download our script file. Upload it somewhere on your server. <%= link_to "Download", download_path(@domain), class: 'btn' %> </p>
+<p><strong>Be aware that this script is customised for the domain <%= @domain.base_domain %></strong>. Do not use this script on other domains, or feedback will not be reported correctly.</p>
+<h2>3) Initialise the feedback plugin</h2> <p>Put this code after your %lt;body&gt; tag and <strong>replace the bold part with the path to the javascript file you downloaded.</strong></p>
+<pre class="prettyprint linenums">&lt;script type=&quot;text/javascript&quot; src=&quot/jquery.derpback.{yourdom.ain}.js&quot;&gt;&lt;/script&gt;
+&lt;DIV ID=&quot;feedback-div&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  $(&quot;#feedback-div&quot;).feedback()
+&lt;/script&gt;
+</pre>
