@@ -11,6 +11,7 @@ FactoryGirl.define do
   end
   factory :domain do
     base_domain "asdjasldkjsa.com"
+    verification_text "asdoiuaosduoasduoasiud"
     user
   end
 end

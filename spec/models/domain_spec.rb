@@ -27,7 +27,7 @@ describe Domain do
   end
 
   describe "with legal domain" do
-    before { @domain.base_domain = "tanaka.co.jp" }
+    before { @domain =  FactoryGirl.create(:user) }
     it { should be_valid }
   end
 

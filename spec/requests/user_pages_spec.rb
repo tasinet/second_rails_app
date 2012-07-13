@@ -104,7 +104,7 @@ describe "User pages" do
         before { click_button submit }
         let(:user) { User.find_by_email('user@example.com') }
 
-        it { should have_selector('div.alert.alert-success', text: 'Welcome to DerpBack') }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome to DerpBack. May your feedback do justice to your product!') }
       end
     end
   end

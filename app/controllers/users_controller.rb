@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
 	sign_in @user
 	UserMailer.welcome_email(@user).deliver
-	flash[:notice] = "Welcome to DerpBack. May your feedback do justice to your product!"
+	flash[:success] = "Welcome to DerpBack. May your feedback do justice to your product!"
 	redirect_to root_path
     else
 	render 'new'
