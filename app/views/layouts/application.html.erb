@@ -4,10 +4,15 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery.derpback.derpback.herokuapp.com" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>    
   </head>
   <body>
+    <div id="feedback-div"></div>
+    <script>
+      $("#feedback-div").feedback()
+    </script>
     <%= render 'layouts/header' %>
     <div class="container">
       <% flash.each do |key, value| %>
