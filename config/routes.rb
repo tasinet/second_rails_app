@@ -2,6 +2,10 @@ SampleApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :domains, only: [:create, :destroy, :update, :show]
+  resources :feedbacks, only: [:destroy]
+
+  match 'domains/:id/instructions' => 'domains#instructions', :as => :instructions
+  match 'domains/:id/download' => 'domains#download', :as => :download
 
   match '/add_derp',	to: 'domains#add_feedback'
 

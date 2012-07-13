@@ -1,5 +1,5 @@
 <% if @confirmed_domains.any? %>
-<ol class="domains">
+<table class="table">
 	<%= render partial: 'shared/domain_item', collection: @confirmed_domains %>
-</ol>
+</table>
 <% end %>

@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   def unconfirmed_domains
     Domain.where("confirmed = 'f'")
   end
+
   private
 
     def create_remember_token

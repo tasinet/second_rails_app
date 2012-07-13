@@ -51,6 +51,25 @@ class DomainsController < ApplicationController
     end
   end
 
+  def instructions
+    @domain = current_user.domains.find_by_id(params[:id])
+    if @domain.nil?
+	flash[:warning] = "Domain not found or not owned by you"
+	redirect_to root_path
+    end
+  end
+
+  def download
+    @domain = current_user.domains.find_by_id(params[:id])
+    if @domain.nil?
+	flash[:warning] = "Domain not found or not owned by you"
+	redirect_to root_path
+    end
+    data = File.open('lib/jquery.derpback.latest.js').read.gsub('DERPBACK_DOMAIN_ID=-1','DERPBACK_DOMAIN_ID='+@domain.id.to_s)
+	puts data
+    send_data data, :type => 'text/html', :x_sendfile => true, :filename => "jquery.derpback.#{@domain.base_domain}.js"
+  end
+
   def add_feedback
     @domain = Domain.find_by_id params[:feedback][:domain_id] if !params[:feedback][:domain_id].nil?
     if (@domain.nil?)

@@ -6,6 +6,8 @@
     <th>Email?</th>
     <th>Facebook ID?</th>
     <th>IP address</th>
+    <th>When?</th>
+    <th>Action</th>
   </tr>
 	<% @domain.feedbacks.each do |f| %>
   <tbody>
@@ -15,6 +17,8 @@
     <TD><%= f.email %></TD>
     <TD><%= f.fbid %></TD>
     <TD><%= f.client_ip %></TD>
+    <TD title="<%=f.created_at%>"><%= time_ago_in_words( f.created_at ) %> ago</TD>
+    <TD><%= link_to "x", f, method: :delete, class: 'btn btn-small' %></TD>
   </TR>
 	<% end %>
 </table>

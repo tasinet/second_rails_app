@@ -3,9 +3,7 @@ class Feedback < ActiveRecord::Base
   belongs_to :domain
   
   validates :domain_id, presence: true
-  validates :email, presence: true
   validates :message, presence: true
-  validates :fbid, presence: true
   validates :client_ip, presence: true
   
   default_scope order: 'feedbacks.created_at DESC'

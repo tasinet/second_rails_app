@@ -1,7 +1,7 @@
 <% if @unconfirmed_domains.any? %>
-<ol class="domains">
+<table class="table">
 	<%= render partial: 'shared/domain_item', collection: @unconfirmed_domains %>
-</ol>
+</table>
 <% else %>
 <ol class="domains">
 	<li class="center">You have not added any domains yet.</li>
