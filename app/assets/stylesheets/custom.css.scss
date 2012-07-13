@@ -1,6 +1,32 @@
 @import "bootstrap";
 
 /* mixins, variables, etc. */
+body, h1, h2, h3, h4, h5, h6, p,.dropdown.open .dropdown-toggle  { color: #666 !important }
+
+.navbar .nav .dropdown-toggle .caret, .navbar .nav .open.dropdown .caret {
+	border-top-color: #AAA !important;
+}
+
+.navbar-inner{
+background-image: -moz-linear-gradient(top, #fff, #ddd) !important;
+background-image: -ms-linear-gradient(top, #fff, #ddd) !important;
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#ddd)) !important;
+background-image: -webkit-linear-gradient(top, white, #EEE) !important;
+background-image: -o-linear-gradient(top, #fff, #ddd) !important;
+background-image: linear-gradient(top, #fff, #ddd) !important;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFffffff', endColorstr='#FFdddddd', GradientType=0) !important;
+}
+
+#logo {
+color: #aaa !important;
+}
+.navbar .nav > li > a:link,
+.navbar .nav > li > a:active,
+.navbar .nav > li > a:visited,
+.navbar .nav > li > a:hover {text-shadow:0px !important}
+
+.navbar .nav > li > a:hover {color:#222 !important}
+
 
 $grayMediumLight: #eaeaea;
 
